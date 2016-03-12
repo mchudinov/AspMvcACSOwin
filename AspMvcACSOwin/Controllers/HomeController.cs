@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Web.Mvc;
 
-namespace MvcACS2015.Controllers
+namespace AspMvcACSOwin.Controllers
 {
     [Authorize]
     public class HomeController : Controller

@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.WsFederation;
 using Microsoft.Owin.Security;
 
-namespace MvcACS2015.Controllers
+namespace AspMvcACSOwin.Controllers
 {
     public class AccountController : Controller
     {

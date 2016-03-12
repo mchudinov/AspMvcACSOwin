@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.WsFederation;
 using Owin;
 
-namespace MvcACS2015
+namespace AspMvcACSOwin
 {
     public partial class Startup
     {

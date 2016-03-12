@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace MvcACS2015
+namespace AspMvcACSOwin
 {
     public partial class Startup
     {

@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
@@ -17,12 +18,40 @@ namespace AspMvcACSOwin
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-            
-            var notifications = new WsFederationAuthenticationNotifications();
-            notifications.SecurityTokenReceived = (context) =>
+
+            var notifications = new WsFederationAuthenticationNotifications
             {
-                return Task.FromResult(0);
+                SecurityTokenReceived = (context) =>
+                {
+                    Debug.WriteLine("SecurityTokenReceived");
+                    return Task.CompletedTask;
+                },
+
+                AuthenticationFailed = (context) =>
+                {
+                    Debug.WriteLine("AuthenticationFailed");
+                    return Task.CompletedTask;
+                },                
+                
+                MessageReceived = (context) =>
+                {
+                    Debug.WriteLine("MessageReceived");
+                    return Task.CompletedTask;
+                },
+
+                RedirectToIdentityProvider = (context) =>
+                {
+                    Debug.WriteLine("RedirectToIdentityProvider");
+                    return Task.CompletedTask;
+                },
+
+                SecurityTokenValidated = (context) =>
+                {
+                    Debug.WriteLine("SecurityTokenValidated");
+                    return Task.CompletedTask;
+                }
             };
+
 
             app.UseWsFederationAuthentication(
                 new WsFederationAuthenticationOptions

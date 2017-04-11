@@ -15,6 +15,7 @@ namespace AspMvcACSOwin.Controllers
                 HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, 
                     WsFederationAuthenticationDefaults.AuthenticationType);
             }
+            //TODO return View();
         }
 
         public void SignOut()

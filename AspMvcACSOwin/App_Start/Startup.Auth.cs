@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.WsFederation;
@@ -11,8 +10,8 @@ namespace AspMvcACSOwin
 {
     public partial class Startup
     {
-        private static readonly string _realm = ConfigurationManager.AppSettings["ida:Wtrealm"];
-        private static readonly string _adfsMetadata = ConfigurationManager.AppSettings["ida:ADFSMetadata"];
+        private static readonly string Realm = ConfigurationManager.AppSettings["ida:Wtrealm"];
+        private static readonly string AdfsMetadata = ConfigurationManager.AppSettings["ida:ADFSMetadata"];
 
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -52,13 +51,12 @@ namespace AspMvcACSOwin
                 }
             };
 
-
             app.UseWsFederationAuthentication(
                 new WsFederationAuthenticationOptions
                 {
                     Notifications = notifications,
-                    Wtrealm = _realm,
-                    MetadataAddress = _adfsMetadata
+                    Wtrealm = Realm,
+                    MetadataAddress = AdfsMetadata
                 });
         }
     }
